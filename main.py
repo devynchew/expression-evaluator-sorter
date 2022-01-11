@@ -1,7 +1,10 @@
+from GetUserOption import GetUserOption
+
 class main_program:
+    def __init__(self):
+        print('Hello')
 
-
-    def interface():
+    def interface(self):
         str = ''
         str += '*'*70 + '\n* ST1507 DSAA: Expression evaluator & Sorter' + f'{"*":>26}'
         str += '\n*' + '_'*68 + '*'
@@ -16,11 +19,32 @@ class main_program:
         str += '\n2. Sort expressions'
         str += '\n3. Exit'
         return str
+    
+    def run(self):
 
-main_program = main_program
-print(main_program.interface())
+        exit_program = False
+
+        while not exit_program:
+            # print the interface
+            print(self.interface())
+
+            # get user option
+            get_user_option = GetUserOption("Enter choice: ", "Please enter a number between 1 and 4.")
+            user_option = get_user_option.get_option()
+
+            if user_option == 1:
+                exit_program == True
+
+            elif user_option == 2:
+                exit_program = True
+
+            elif user_option == 3:
+                print('Bye, thanks for using ST1507 DSAA: Expression Evaluator & Sorter')
+                exit_program = True
+                
+            else:
+                continue
+main_program = main_program()
+main_program.run()
 
 
-
-
-main_program() # run the main program
