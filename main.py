@@ -1,6 +1,7 @@
 from GetUserOption import GetUserOption
 from GetInputFile import GetInputFile
 from GetOutputFile import GetOutputFile
+from Sort import Sort
 
 class main_program:
     def __init__(self):
@@ -40,11 +41,12 @@ class main_program:
             elif user_option == 2: # option 2
                 inputFileClass = GetInputFile('Please enter input file: ', '\nPlease enter a valid text file with fully parenthesized mathematical expressions.') # get input file
                 inputFile = inputFileClass.getInput()
-                print(inputFile)
 
                 outputFileClass = GetOutputFile('Please enter output file: ', '\nPlease enter a valid output text file.')
                 outputFile = outputFileClass.getOutput()
-                print(outputFile)
+                
+                sortClass = Sort(inputFile)
+                sortClass.sort()
                 exit_program = True
 
             elif user_option == 3: # option 3

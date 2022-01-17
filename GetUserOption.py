@@ -1,23 +1,23 @@
 class GetUserOption():
     def __init__(self, prompt, errorMsg): 
-            self.prompt = prompt
-            self.errorMsg = errorMsg
+            self.__prompt = prompt
+            self.__errorMsg = errorMsg
 
     def get_option(self):
         while True:
             try:
-                value = int(input(self.prompt))
+                value = int(input(self.__prompt))
             except ValueError:
-                print(self.errorMsg)
+                print(self.__errorMsg)
                 continue # continue skips the current iteration
             except:
-                print(self.errorMsg)
+                print(self.__errorMsg)
                 continue
             if value < 1:
-                print(self.errorMsg)
+                print(self.__errorMsg)
                 continue
             if value > 3:
-                print(self.errorMsg)
+                print(self.__errorMsg)
                 continue
             else:
                 # we got a valid value, exit the loop
