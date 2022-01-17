@@ -1,4 +1,5 @@
 from GetUserOption import GetUserOption
+from GetInputFile import GetInputFile
 
 class main_program:
     def __init__(self):
@@ -32,13 +33,16 @@ class main_program:
             get_user_option = GetUserOption("Enter choice: ", "Please enter a number between 1 and 4.")
             user_option = get_user_option.get_option()
 
-            if user_option == 1:
-                exit_program == True
-
-            elif user_option == 2:
+            if user_option == 1: # option 1
                 exit_program = True
 
-            elif user_option == 3:
+            elif user_option == 2: # option 2
+                inputFileClass = GetInputFile("Please enter the name of an input file: ", "\nPlease enter a valid text file with fully parenthesized mathematical expressions.") # get input file
+                inputFile = inputFileClass.getInput()
+                print(inputFile)
+                exit_program = True
+
+            elif user_option == 3: # option 3
                 print('Bye, thanks for using ST1507 DSAA: Expression Evaluator & Sorter')
                 exit_program = True
                 

@@ -1,22 +1,18 @@
-class GetUserOption():
+import os.path
+
+class GetInputFile():
     def __init__(self, prompt, errorMsg): 
             self.prompt = prompt
             self.errorMsg = errorMsg
 
-    def get_option(self):
+    def getInput(self):
         while True:
             try:
-                value = int(input(self.prompt))
-            except ValueError:
-                print(self.errorMsg)
-                continue # continue skips the current iteration
+                value = input(self.prompt)
             except:
                 print(self.errorMsg)
                 continue
-            if value < 1:
-                print(self.errorMsg)
-                continue
-            if value > 3:
+            if not os.path.isfile(value): # check if file exist
                 print(self.errorMsg)
                 continue
             else:
