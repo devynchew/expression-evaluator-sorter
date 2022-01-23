@@ -1,9 +1,10 @@
 class Sort():
-    def __init__(self, filename):
-        self.__filename = filename
+    def __init__(self, inputfile, outputfile):
+        self.__inputfile = inputfile
+        self.__outputfile = outputfile
     
-    def sort(self):
-        with open(self.__filename) as file:
+    def sort(self): # main function for option 2 (sorting expressions from a file)
+        with open(self.__inputfile) as file:
             expressions = []
             for line in file:
                 expression = line.split(',')[0] # store the expression
@@ -15,10 +16,12 @@ class Sort():
                 expressions.append((expression_n, value)) # append a tuple
             print(expressions)
             print()
-            self.bubbleSort(expressions)
-            print(expressions)
+            sorted_expressions = self.bubbleSort(expressions)
+            print(sorted_expressions)
+            self.printOutput(sorted_expressions)
+            self.outputReport(self.__outputfile, sorted_expressions)
 
-    def bubbleSort(self, l):
+    def bubbleSort(self, l): # handles all the sorting logic
         isSorted = False # Set to false so we can enter while loop
 
         while not isSorted:
@@ -32,3 +35,57 @@ class Sort():
                     if len(l[i][0]) > len(l[i+1][0]):
                         l[i],l[i+1], = l[i+1], l[i]
                         isSorted = False
+                    elif len(l[i][0]) == len(l[i+1][0]):
+                        if l[i][0].count('(') + l[i][0].count(')') < l[i+1][0].count('(') + l[i+1][0].count(')'):
+                            l[i],l[i+1], = l[i+1], l[i]
+                            isSorted = False
+        return l
+    
+    def writeToFile(self, file, content): # writes a line of string to a file
+        # Open the file in append & read mode ('a+')
+        with open(file, "a+") as file_object:
+            # Move read cursor to the start of file.
+            file_object.seek(0)
+            # If file is not empty then append '\n'
+            data = file_object.read(100)
+            if len(data) > 0 :
+                file_object.write("\n")
+            # Append text at the end of file
+            file_object.write(content)
+
+    def outputReport(self, file, expressions): # generates the output report
+        # create a unique list of values# create a unique list of values
+        valueArr = []
+        for expression in expressions:
+            valueArr.append(expression[1])
+        mySet = set(valueArr)
+        uniqueValues = list(mySet)
+
+        counter = 0 # counter just to handle how the first line prints differently
+        for value in uniqueValues:
+            if counter == 0:
+                self.writeToFile(file, '*'*3 + ' Expressions with value= ' + str(value))
+            else:
+                self.writeToFile(file, '\n' + '*'*3 + ' Expressions with value= ' + str(value))
+            counter += 1
+
+            for expression in expressions:
+                if expression[1] == value:
+                    self.writeToFile(file, f'{expression[0]}==>{value}')
+
+    def printOutput(self, expressions): # prints the output to screen
+        # create a unique list of values
+        valueArr = []
+        for expression in expressions:
+            valueArr.append(expression[1])
+        mySet = set(valueArr)
+        uniqueValues = list(mySet)
+
+        print('>>>Evaluation and sorting started:')
+        for value in uniqueValues:
+            print('\n' + '*'*3 + ' Expressions with value= ' + str(value))
+            for expression in expressions:
+                if expression[1] == value:
+                    print(f'{expression[0]}==>{value}')
+        print('>>>Evaluation and sorting completed!')
+

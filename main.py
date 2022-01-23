@@ -45,7 +45,7 @@ class main_program:
                 outputFileClass = GetOutputFile('Please enter output file: ', '\nPlease enter a valid output text file.')
                 outputFile = outputFileClass.getOutput()
                 
-                sortClass = Sort(inputFile)
+                sortClass = Sort(inputFile, outputFile)
                 sortClass.sort()
                 exit_program = True
 
