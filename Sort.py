@@ -8,16 +8,15 @@ class Sort():
             expressions = []
             for line in file:
                 expression = line.split(',')[0] # store the expression
-                print(expression)
+               
                 value = float(line.split(',')[1][:-1]) # store the value
                 
                 expression_n = expression.replace(' ', '') # remove all whitespaces from expression
 
                 expressions.append((expression_n, value)) # append a tuple
-            print(expressions)
-            print()
+
             sorted_expressions = self.bubbleSort(expressions)
-            print(sorted_expressions)
+
             self.printOutput(sorted_expressions)
             self.outputReport(self.__outputfile, sorted_expressions)
 
