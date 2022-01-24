@@ -1,4 +1,5 @@
 import os.path
+from Tokenize import Tokenize
 
 class GetInputFile():
     def __init__(self, prompt, errorMsg): 
@@ -27,10 +28,8 @@ class GetInputFile():
                                 expression_n = expression.replace(' ', '') # remove all whitespaces from expression
                                 
                                 expression_list = list(expression_n) # convert string to list
-                                print(f'expression_list {expression_list}')
 
                                 for i in range(len(expression_list) - 1):
-                                    print(expression_list[i])
                                     if i == 0: # ensure first char in expression is a parenthesis
                                         if expression_list[i] != '(':
                                             print('Input file must contain only fully parenthesized mathematical expressions.')
@@ -41,20 +40,30 @@ class GetInputFile():
                                             print('Input file must contain only fully parenthesized mathematical expressions.')
                                             valid = False
                                             break
-                                    else: # tokenise expression
-                                        if expression_list[i] not in ['+', '-', '*', '/', '**', '(', ')', '.']:
-                                            print('Input file contains invalid characters.')
-                                            valid = False
-                                            break
+                                    else:
+                                        pass
                         
                     else:
                         print('Input file must not be empty.')
                         continue
 
                 if not valid: # input file is not valid, continue to prompt user for input file
+                    print('something went wrong')
                     continue
-                # if we reached here, input file is valid, start tokenising
-                
+
+                # if we reached here, start tokenising
+                with open(value) as file:
+                    for line in file:
+                        expression = line.split(',')[0] # store the expression
+                        expression_n = expression.replace(' ', '') # remove all whitespaces from expression
+                        
+                        expression_list = list(expression_n) # convert string to list
+                        print(f'expression_list {expression_list}')
+
+                        tokenizeClass = Tokenize(exList=expression_list)
+                        l = tokenizeClass.tokenize()
+                        print(f'tokenized list {l}')
+
 
             except:
                 print(self.__errorMsg)
