@@ -1,4 +1,4 @@
-class Sort():
+class Sort:
     def __init__(self, inputfile, outputfile):
         self.__inputfile = inputfile
         self.__outputfile = outputfile

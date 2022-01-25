@@ -1,4 +1,4 @@
-class GetOutputFile():
+class GetOutputFile:
     def __init__(self, prompt, errorMsg): 
             self.__prompt = prompt
             self.__errorMsg = errorMsg

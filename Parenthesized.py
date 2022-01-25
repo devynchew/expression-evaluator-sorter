@@ -1,4 +1,4 @@
-class Parenthesized():
+class Parenthesized:
     def __init__(self, exList):
         self.exList = exList
 

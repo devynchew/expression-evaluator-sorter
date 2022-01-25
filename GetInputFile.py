@@ -2,7 +2,7 @@ import os.path
 from Tokenize import Tokenize
 from Parenthesized import Parenthesized
 
-class GetInputFile():
+class GetInputFile:
     def __init__(self, prompt, errorMsg): 
             self.__prompt = prompt
             self.__errorMsg = errorMsg
@@ -29,8 +29,8 @@ class GetInputFile():
                                 expression_n = expression.replace(' ', '') # remove all whitespaces from expression
                                 
                                 expression_list = list(expression_n) # convert string to list
-
-                                for i in range(len(expression_list) - 1):
+                                print(f'expression_list {expression_list}')
+                                for i in range(len(expression_list)):
                                     if i == 0: # ensure first char in expression is a parenthesis
                                         if expression_list[i] != '(':
                                             print('Expressions in input file must start and end with parenthesis.')

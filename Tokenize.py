@@ -1,4 +1,4 @@
-class Tokenize():
+class Tokenize:
     def __init__(self, exList):
         self.exList = exList
         
