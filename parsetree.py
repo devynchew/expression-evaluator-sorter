@@ -98,15 +98,15 @@ def buildParseTree(exp):
             stack.push(currentTree)
             currentTree = currentTree.getLeftTree()
         # RULE 2: If token is operator set key of current node to that operator and add a new node as right child and descend into that node
-        elif t in ['+', '-', '*', '/']:
+        elif t in ['+', '-', '*', '/','**']:
             currentTree.setKey(t)
             currentTree.insertRight('?')
             stack.push(currentTree)
             currentTree = currentTree.getRightTree() 
 
         # RULE 3: If token is number, set key of the current node to that number and return to parent
-        elif t not in ['+', '-', '*', '/', ')'] :
-            currentTree.setKey(int(t))  
+        elif t not in ['+', '-', '*', '/','**', ')'] :
+            currentTree.setKey(int(t))  #need to change int()
             parent = stack.pop()
             currentTree = parent
 
