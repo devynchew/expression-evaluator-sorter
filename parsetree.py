@@ -40,7 +40,7 @@ class BinaryTree:
             self.leftTree.printInorder(level+1)
             
         #N
-        print( str(level*'-') + str(self.key))
+        print( str(level*'.') + str(self.key))
         
         #R
         if self.rightTree != None:
@@ -83,8 +83,7 @@ class Stack:
         output += '>'
         return output
 
-def buildParseTree(exp):
-    tokens = exp.split() 
+def buildParseTree(tokens):
     stack = Stack()
     tree = BinaryTree('?')
     stack.push(tree) # reference to tree is pushed in
@@ -136,7 +135,8 @@ def evaluate(tree):
         return tree.getKey()
     
 exp = '( 2 + ( 4 * 5 ) )'
-tree = buildParseTree(exp)
+exp2 = ['(', '(', '-500', '+', '(', '4', '*', '3.14', ')', ')', '/', '(', '2', '**', '3', ')', ')']
+tree = buildParseTree(exp2)
 tree.printInorder(0)
-print (f'The expression: {exp} evaluates to: {evaluate(tree)}')
+print (f'The expression: {exp2} evaluates to: {evaluate(tree)}')
 

@@ -4,8 +4,6 @@ from GetOutputFile import GetOutputFile
 from Sort import Sort
 
 class main_program:
-    def __init__(self):
-        print('Hello')
 
     def interface(self):
         str = ''
