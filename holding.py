@@ -28,7 +28,7 @@ class GetInputFile():
                                 expression_list = list(expression_n) # convert string to list
                                 print(f'expression_list {expression_list}')
 
-                                for i in range(len(expression_list) - 1):
+                                for i in range(len(expression_list)):
                                     print(expression_list[i])
                                     if i == 0: # ensure first char in expression is a parenthesis
                                         if expression_list[i] != '(':

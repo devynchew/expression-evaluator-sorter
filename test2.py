@@ -1,18 +1,9 @@
-l = ['-', '5', '0', '0']
-l2 = ['(', '(']
-
+l = ['(', '(', '-500', '+', '(', '4', '*', '3.14', ')', ')', '/', '(', '2', '**', '3', ')', ')']
 str = ''
-for ele in l:
-    str += ele
+for i in range(len(l)):
+    if i == len(l) - 1:
+        str += l[i]
+    else:
+        str += l[i] + ' '
+
 print(str)
-l_t = []
-l_t.append(str)
-
-l3 = l2 + l_t
-print(l3)
-
-templ = []
-if templ:
-    print('yes')
-else:
-    print('no')
