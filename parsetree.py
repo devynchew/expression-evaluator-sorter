@@ -91,6 +91,7 @@ def buildParseTree(tokens):
     currentTree = tree # reference to root node of tree
 
     for t in tokens:
+        print(t)
         # RULE 1: If token is '(' add a new node as left child and descend into that node
         if t == '(':
             currentTree.insertLeft('?') 
@@ -105,7 +106,8 @@ def buildParseTree(tokens):
 
         # RULE 3: If token is number, set key of the current node to that number and return to parent
         elif t not in ['+', '-', '*', '/','**', ')'] :
-            currentTree.setKey(int(t))  #need to change int()
+            # currentTree.setKey(int(t))  #need to change int() to float() 
+            currentTree.setKey(float(t))
             parent = stack.pop()
             currentTree = parent
 
@@ -130,12 +132,14 @@ def evaluate(tree):
         elif op == '*':
             return evaluate(leftTree) * evaluate(rightTree)
         elif op == '/':
-            return evaluate(leftTree) / evaluate(rightTree)
+            return evaluate(leftTree) / evaluate(rightTree) #error: righttree is none but division still carries out
     else:
         return tree.getKey()
     
+    
 exp = '( 2 + ( 4 * 5 ) )'
 exp2 = ['(', '(', '-500', '+', '(', '4', '*', '3.14', ')', ')', '/', '(', '2', '**', '3', ')', ')']
+exp3 = '((10+(10+(10+10)))+(10+10))'
 tree = buildParseTree(exp2)
 tree.printInorder(0)
 print (f'The expression: {exp2} evaluates to: {evaluate(tree)}')
