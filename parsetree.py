@@ -1,3 +1,5 @@
+from Tokenize import Tokenize
+
 class BinaryTree:
     def __init__(self, key, leftTree = None, rightTree = None):
         self.key = key
@@ -83,7 +85,15 @@ class Stack:
         output += '>'
         return output
 
-def buildParseTree(tokens):
+def buildParseTree(exp):
+    exp = " ".join(exp)
+    string = exp.split(' ')
+    while '' in string:
+        string.remove('')
+    string = ' '.join(string)
+    splitexp = string.split() #to be replaced with new tokenizer, currently used for testing
+    tokenizeClass = Tokenize(exList = splitexp)
+    tokens = tokenizeClass.tokenize()
     stack = Stack()
     tree = BinaryTree('?')
     stack.push(tree) # reference to tree is pushed in
@@ -91,23 +101,24 @@ def buildParseTree(tokens):
     currentTree = tree # reference to root node of tree
 
     for t in tokens:
-        print(t)
+        # print(t)
+        # print(type(t))
         # RULE 1: If token is '(' add a new node as left child and descend into that node
         if t == '(':
             currentTree.insertLeft('?') 
             stack.push(currentTree)
             currentTree = currentTree.getLeftTree()
         # RULE 2: If token is operator set key of current node to that operator and add a new node as right child and descend into that node
-        elif t in ['+', '-', '*', '/','**']:
+        elif t in ['+', '-', '*', '/', '**']:
             currentTree.setKey(t)
             currentTree.insertRight('?')
             stack.push(currentTree)
             currentTree = currentTree.getRightTree() 
 
         # RULE 3: If token is number, set key of the current node to that number and return to parent
-        elif t not in ['+', '-', '*', '/','**', ')'] :
-            # currentTree.setKey(int(t))  #need to change int() to float() 
-            currentTree.setKey(float(t))
+        elif t not in ['+', '-', '*', '/', '**', ')'] :
+            # t = float(t)
+            currentTree.setKey(float(t))  
             parent = stack.pop()
             currentTree = parent
 
@@ -131,16 +142,17 @@ def evaluate(tree):
             return evaluate(leftTree) - evaluate(rightTree)
         elif op == '*':
             return evaluate(leftTree) * evaluate(rightTree)
+        elif op == '**':
+            return evaluate(leftTree) ** evaluate(rightTree)
         elif op == '/':
-            return evaluate(leftTree) / evaluate(rightTree) #error: righttree is none but division still carries out
+            print (evaluate(leftTree), evaluate(rightTree))
+            return evaluate(leftTree) / evaluate(rightTree)
     else:
         return tree.getKey()
     
-    
-exp = '( 2 + ( 4 * 5 ) )'
-exp2 = ['(', '(', '-500', '+', '(', '4', '*', '3.14', ')', ')', '/', '(', '2', '**', '3', ')', ')']
-exp3 = '((10+(10+(10+10)))+(10+10))'
+# exp = '( 2 + ( 4 * 5 ) )'
+exp2 = '((-500+(4*3.14))/(2**3))'
+# exp3 =  '((11.07+25.5)-10)'
 tree = buildParseTree(exp2)
 tree.printInorder(0)
 print (f'The expression: {exp2} evaluates to: {evaluate(tree)}')
-
