@@ -145,7 +145,6 @@ def evaluate(tree):
         elif op == '**':
             return evaluate(leftTree) ** evaluate(rightTree)
         elif op == '/':
-            print (evaluate(leftTree), evaluate(rightTree))
             return evaluate(leftTree) / evaluate(rightTree)
     else:
         return tree.getKey()
