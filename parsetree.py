@@ -1,3 +1,4 @@
+from symtable import Symbol
 from Tokenize import Tokenize
 
 class BinaryTree:
@@ -42,7 +43,8 @@ class BinaryTree:
             self.leftTree.printInorder(level+1)
             
         #N
-        print( str(level*'.') + str(self.key))
+        # print( str(level*'-') + str(self.key)) #change separator here
+        print( str(level*symbol) + str(self.key))
         
         #R
         if self.rightTree != None:
@@ -148,6 +150,12 @@ def evaluate(tree):
             return evaluate(leftTree) / evaluate(rightTree)
     else:
         return tree.getKey()
+    
+    
+#main
+with open('config.txt', 'r') as configfile:
+    symbol = configfile.readline()
+    operator = configfile.readline()
     
 # exp = '( 2 + ( 4 * 5 ) )'
 exp2 = '((-500+(4*3.14))/(2**3))'
