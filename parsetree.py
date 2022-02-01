@@ -155,7 +155,12 @@ def evaluate(tree):
 #main
 with open('config.txt', 'r') as configfile:
     symbol = configfile.readline()
-    operator = configfile.readline()
+    print(symbol)
+    if symbol == ' \n':
+        symbol = ' '
+    else:
+        symbol = symbol.rstrip()
+    operatorclass = configfile.readline()
     
 # exp = '( 2 + ( 4 * 5 ) )'
 exp2 = '((-500+(4*3.14))/(2**3))'
