@@ -184,10 +184,10 @@ with open('config.txt', 'r') as configfile:
         symbol = symbol.rstrip()
     operatorclass = configfile.readline()
     operatorclass = operatorclass.rstrip()
-    if operatorclass == '1':
-        operatorclass = operator1
-    else:
+    if operatorclass == '2':
         operatorclass = operator2
+    else:
+        operatorclass = operator1
     
 exp = '( 2 + ( 4 * 5 ) )'
 exp2 = '((-500+(4*3.14))/(2**3))'
