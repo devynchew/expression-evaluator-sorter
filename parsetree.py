@@ -1,5 +1,7 @@
-from symtable import Symbol
 from Tokenize import Tokenize
+import math
+import operator1
+
 
 class BinaryTree:
     def __init__(self, key, leftTree = None, rightTree = None):
@@ -132,7 +134,7 @@ def buildParseTree(exp):
 
     return tree
 
-#operator implementation 
+# operator implementation 
 def evaluate(tree):
     leftTree = tree.getLeftTree()
     rightTree = tree.getRightTree()
@@ -150,7 +152,25 @@ def evaluate(tree):
             return evaluate(leftTree) / evaluate(rightTree)
     else:
         return tree.getKey()
-    
+ 
+#test   
+# def evaluate(tree):
+#     leftTree = tree.getLeftTree()
+#     rightTree = tree.getRightTree()
+#     op = tree.getKey()
+#     if leftTree != None and rightTree != None: 
+#         if op == '+':
+#             return operator1(evaluate(leftTree)) + operator1(evaluate(rightTree))
+#         elif op == '-':
+#             return operator1(evaluate(leftTree)) - operator1(evaluate(rightTree))
+#         elif op == '*':
+#             return operator1(evaluate(leftTree)) * operator1(evaluate(rightTree))
+#         elif op == '**':
+#             return operator1(evaluate(leftTree)) ** operator1(evaluate(rightTree))
+#         elif op == '/':
+#             return operator1(evaluate(leftTree)) / operator1(evaluate(rightTree))
+#     else:
+#         return tree.getKey()
     
 #main
 with open('config.txt', 'r') as configfile:
@@ -167,4 +187,6 @@ exp2 = '((-500+(4*3.14))/(2**3))'
 # exp3 =  '((11.07+25.5)-10)'
 tree = buildParseTree(exp2)
 tree.printInorder(0)
+# eval1 = evaluate1(tree)
 print (f'The expression: {exp2} evaluates to: {evaluate(tree)}')
+# print (f'The expression: {exp2} evaluates to: {eval1.evaluate(tree)}')
