@@ -1,6 +1,7 @@
 from Tokenize import Tokenize
 import math
-import operator1
+from operator1 import operator1
+from operator2 import operator2
 
 
 class BinaryTree:
@@ -135,42 +136,43 @@ def buildParseTree(exp):
     return tree
 
 # operator implementation 
-def evaluate(tree):
-    leftTree = tree.getLeftTree()
-    rightTree = tree.getRightTree()
-    op = tree.getKey()
-    if leftTree != None and rightTree != None: 
-        if op == '+':
-            return evaluate(leftTree) + evaluate(rightTree)
-        elif op == '-':
-            return evaluate(leftTree) - evaluate(rightTree)
-        elif op == '*':
-            return evaluate(leftTree) * evaluate(rightTree)
-        elif op == '**':
-            return evaluate(leftTree) ** evaluate(rightTree)
-        elif op == '/':
-            return evaluate(leftTree) / evaluate(rightTree)
-    else:
-        return tree.getKey()
- 
-#test   
 # def evaluate(tree):
 #     leftTree = tree.getLeftTree()
 #     rightTree = tree.getRightTree()
 #     op = tree.getKey()
 #     if leftTree != None and rightTree != None: 
 #         if op == '+':
-#             return operator1(evaluate(leftTree)) + operator1(evaluate(rightTree))
+#             return evaluate(leftTree) + evaluate(rightTree)
 #         elif op == '-':
-#             return operator1(evaluate(leftTree)) - operator1(evaluate(rightTree))
+#             return evaluate(leftTree) - evaluate(rightTree)
 #         elif op == '*':
-#             return operator1(evaluate(leftTree)) * operator1(evaluate(rightTree))
+#             return evaluate(leftTree) * evaluate(rightTree)
 #         elif op == '**':
-#             return operator1(evaluate(leftTree)) ** operator1(evaluate(rightTree))
+#             return evaluate(leftTree) ** evaluate(rightTree)
 #         elif op == '/':
-#             return operator1(evaluate(leftTree)) / operator1(evaluate(rightTree))
+#             print(evaluate(leftTree),evaluate(rightTree))
+#             return evaluate(leftTree) / evaluate(rightTree)
 #     else:
 #         return tree.getKey()
+ 
+#test   
+def evaluate(tree):
+    leftTree = tree.getLeftTree()
+    rightTree = tree.getRightTree()
+    op = tree.getKey()
+    if leftTree != None and rightTree != None: 
+        if op == '+':
+            return operatorclass(evaluate(leftTree)) + operatorclass(evaluate(rightTree))
+        elif op == '-':
+            return operatorclass(evaluate(leftTree)) - operatorclass(evaluate(rightTree))
+        elif op == '*':
+            return operatorclass(evaluate(leftTree)) * operatorclass(evaluate(rightTree))
+        elif op == '**':
+            return operatorclass(evaluate(leftTree)) ** operatorclass(evaluate(rightTree))
+        elif op == '/':
+            return operatorclass(evaluate(leftTree)) / operatorclass(evaluate(rightTree))
+    else:
+        return tree.getKey()
     
 #main
 with open('config.txt', 'r') as configfile:
@@ -181,8 +183,13 @@ with open('config.txt', 'r') as configfile:
     else:
         symbol = symbol.rstrip()
     operatorclass = configfile.readline()
+    operatorclass = operatorclass.rstrip()
+    if operatorclass == '1':
+        operatorclass = operator1
+    else:
+        operatorclass = operator2
     
-# exp = '( 2 + ( 4 * 5 ) )'
+exp = '( 2 + ( 4 * 5 ) )'
 exp2 = '((-500+(4*3.14))/(2**3))'
 # exp3 =  '((11.07+25.5)-10)'
 tree = buildParseTree(exp2)
