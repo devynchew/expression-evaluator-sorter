@@ -1,7 +1,7 @@
 from Tokenize import Tokenize
-import math
 from operator1 import operator1
 from operator2 import operator2
+from Stack import Stack
 
 
 class BinaryTree:
@@ -39,56 +39,52 @@ class BinaryTree:
             t = BinaryTree(key)
             # insert key into the middle of self and self's right tree
             self.rightTree , t.rightTree = t, self.rightTree
-            
+    
+        
     def printInorder(self, level):
+        # templist = []
         #L
         if self.leftTree != None:
             self.leftTree.printInorder(level+1)
             
         #N
-        # print( str(level*'-') + str(self.key)) #change separator here
-        print( str(level*symbol) + str(self.key))
+        print( str(level*symbol) + str(self.key)) #needs to print in reverse 
+        #store node in list
+        # templist += [str(level*symbol) + str(self.key)]
         
         #R
         if self.rightTree != None:
             self.rightTree.printInorder(level+1)
-
-class Stack:
-    def __init__(self):
-        self.__list= []
     
-    def isEmpty(self):
-        return self.__list == []
-    def size(self):
-        return len(self.__list)
-    def clear(self):
-        self.__list.clear()
+    
 
-    def push(self, item):
-        self.__list.append(item)
+# class Stack:
+#     def __init__(self):
+#         self.__list= []
+    
+#     def isEmpty(self):
+#         return self.__list == []
+#     def size(self):
+#         return len(self.__list)
+#     def clear(self):
+#         self.__list.clear()
 
-    def pop(self):
-        if self.isEmpty():
-            return None
-        else:
-            return self.__list.pop()
+#     def push(self, item):
+#         self.__list.append(item)
 
-    def get(self):
-        if self.isEmpty():
-            return None
-        else:
-            return self.__list[-1]
+#     def pop(self):
+#         if self.isEmpty():
+#             return None
+#         else:
+#             return self.__list.pop()
 
-    def __str__(self): # print every item in the stack
-        output = '<'
-        for i in range( len(self.__list) ):
-            item = self.__list[i]
-            if i < len(self.__list)-1 :
-                output += f'{str(item)}, '
-            else:
-                output += f'{str(item)}'
-        output += '>'
-        return output
+#     def get(self):
+#         if self.isEmpty():
+#             return None
+#         else:
+#             return self.__list[-1]
+
+    
 
 def buildParseTree(exp):
     exp = " ".join(exp)
@@ -177,7 +173,7 @@ def evaluate(tree):
 #main
 with open('config.txt', 'r') as configfile:
     symbol = configfile.readline()
-    print(symbol)
+    # print(symbol)
     if symbol == ' \n':
         symbol = ' '
     else:
@@ -192,8 +188,8 @@ with open('config.txt', 'r') as configfile:
 exp = '( 2 + ( 4 * 5 ) )'
 exp2 = '((-500+(4*3.14))/(2**3))'
 # exp3 =  '((11.07+25.5)-10)'
-tree = buildParseTree(exp2)
+tree = buildParseTree(exp)
 tree.printInorder(0)
 # eval1 = evaluate1(tree)
-print (f'The expression: {exp2} evaluates to: {evaluate(tree)}')
+print (f'The expression: {exp} evaluates to: {evaluate(tree)}')
 # print (f'The expression: {exp2} evaluates to: {eval1.evaluate(tree)}')

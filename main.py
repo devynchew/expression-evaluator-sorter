@@ -1,6 +1,7 @@
 from GetUserOption import GetUserOption
 from GetInputFile import GetInputFile
 from GetOutputFile import GetOutputFile
+from parsetree import *
 from Sort import Sort
 
 class main_program:
@@ -35,6 +36,10 @@ class main_program:
 
             if user_option == 1: # option 1
                 exit_program = True
+                exp = input('Please enter the expression you want to evaluate:') #validation needed
+                tree = buildParseTree(exp)
+                tree.printInorder(0) #needs to print 90 degrees
+                print (f'The expression: {exp2} evaluates to: {evaluate(tree)}')
 
             elif user_option == 2: # option 2
                 inputFileClass = GetInputFile('Please enter input file: ', '\nPlease enter a valid text file with fully parenthesized mathematical expressions.') # get input file
