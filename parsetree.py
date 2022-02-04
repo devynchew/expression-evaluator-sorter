@@ -40,22 +40,77 @@ class BinaryTree:
             # insert key into the middle of self and self's right tree
             self.rightTree , t.rightTree = t, self.rightTree
     
-        
+    
     def printInorder(self, level):
-        # templist = []
+        
         #L
         if self.leftTree != None:
             self.leftTree.printInorder(level+1)
             
-        #N
-        print( str(level*symbol) + str(self.key)) #needs to print in reverse 
-        #store node in list
-        # templist += [str(level*symbol) + str(self.key)]
+        # N
+        # print( str(level*symbol) + str(self.key)) #needs to print in reverse 
+        # store node in list
+        # self.templist.append(str(level*symbol) + str(self.key))
+        # print(self.templist)
+        templist.append(str(level*symbol) + str(self.key))
+        # print(templist)
+        # return in reverse order
         
         #R
         if self.rightTree != None:
             self.rightTree.printInorder(level+1)
-    
+        
+        
+        
+    # def printInorder(self, level):
+        
+    #     #L
+    #     if self.leftTree != None:
+    #         self.leftTree.printInorder(level+1)
+            
+    #     #N
+    #     # print( str(level*symbol) + str(self.key)) #needs to print in reverse 
+    #     #store node in list
+    #     self.templist.append((str(level*symbol) + str(self.key)))
+    #     print(self.templist)
+    #     # return in reverse order
+        
+    #     # R
+    #     if self.rightTree != None:
+    #         self.rightTree.printInorder(level+1)
+        
+
+        
+    # def printPreorder(self, level, templist = []):
+        
+    #     #N
+    #     print( str(level*symbol) + str(self.key)) 
+    #     #store node in list
+    #     # templist += [str(level*symbol) + str(self.key)]
+        
+    #     #L
+    #     if self.leftTree != None:
+    #         self.leftTree.printPreorder(level+1)
+        
+    #     #R
+    #     if self.rightTree != None:
+    #         self.rightTree.printPreorder(level+1)
+            
+    # def printPostorder(self, level, templist = []):
+        
+    #     #L
+    #     if self.leftTree != None:
+    #         self.leftTree.printPostorder(level+1)
+        
+    #     #R
+    #     if self.rightTree != None:
+    #         self.rightTree.printPostorder(level+1)
+            
+    #     #N
+    #     print( str(level*symbol) + str(self.key)) 
+        #store node in list
+        # templist += [str(level*symbol) + str(self.key)]
+        
     
 
 # class Stack:
@@ -185,11 +240,15 @@ with open('config.txt', 'r') as configfile:
     else:
         operatorclass = operator1
     
-exp = '( 2 + ( 4 * 5 ) )'
-exp2 = '((-500+(4*3.14))/(2**3))'
-# exp3 =  '((11.07+25.5)-10)'
-tree = buildParseTree(exp)
-tree.printInorder(0)
+templist = []
+# exp = '( 2 + ( 4 * 5 ) )'
+# exp2 = '((-500+(4*3.14))/(2**3))'
+# # exp3 =  '((11.07+25.5)-10)'
+# tree = buildParseTree(exp)
+# tree.printInorder(0)
+# for i in reversed(templist):
+#     print(i)
+# print(templist[::-1])
 # eval1 = evaluate1(tree)
-print (f'The expression: {exp} evaluates to: {evaluate(tree)}')
+# print (f'The expression: {exp} evaluates to: {evaluate(tree)}')
 # print (f'The expression: {exp2} evaluates to: {eval1.evaluate(tree)}')
