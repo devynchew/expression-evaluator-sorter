@@ -61,6 +61,17 @@ class main_program:
                 print('Bye, thanks for using ST1507 DSAA: Expression Evaluator & Sorter')
                 exit_program = True
                 
+            elif user_option == 4: #option 4 ryan #change print traversal option
+                print('Change Tree Traversal:')
+                print('1. Inorder Traversal')
+                print('2. Preorder Traversal')
+                print('3. Postorder Traversal')
+                printOption = input('Enter choice here:')
+                
+            elif user_option == 5: #option 5 ryan reverse traversal or standard
+                print('Change Print Order:')
+                print('1. Standard')
+                print('2. Reverse')
             else:
                 continue
 main_program = main_program()
