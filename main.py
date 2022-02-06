@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 from msilib.schema import Binary
+=======
+from sympy import Ge
+>>>>>>> 15bcf6cb7b770a9dce90389410bff76e35dfe83f
 from GetUserOption import GetUserOption
 from GetInputFile import GetInputFile
 from GetOutputFile import GetOutputFile
+from GetExpression import GetExpression
 from Parsetree import *
 from BuildParseTree import BuildParseTree
 from Evaluate import Evaluate
@@ -19,6 +24,10 @@ class main_program:
         str += '\n*' + ' '*68 + '*'
         str += '\n*' + '*'*69
         str += '\n\n\n\n'
+        return str
+
+    def options(self):
+        str = ''
         str += f'Please select your choice (\'1\',\'2\',\'3\'):'
         str += '\n1. Evaluate expression'
         str += '\n2. Sort expressions'
@@ -31,10 +40,11 @@ class main_program:
     def run(self):
 
         exit_program = False
+        print(self.interface())
 
         while not exit_program:
             # print the interface
-            print(self.interface())
+            print(self.options())
 
             # get user option
             get_user_option = GetUserOption('Enter choice: ', 'Please enter a number between 1 and 4.')
@@ -42,7 +52,8 @@ class main_program:
 
             
             if user_option == 1: # option 1
-                exp = input('\nPlease enter the expression you want to evaluate: ') #validation needed
+                getExpressionClass = GetExpression('Please enter the expression you want to evaluate: ', 'Please enter a fully parenthesized mathematical expression.')
+                exp, original = getExpressionClass.get_expression()
                 print('\n')
                 tree = BuildParseTree.buildParseTree(exp)
                 tree.printInorder(0) #needs to print 90 degrees
@@ -50,9 +61,13 @@ class main_program:
                 print('')
                 for i in reversed(templist):
                     print(i)
+<<<<<<< HEAD
                 print (f'\nThe expression: {exp} evaluates to: {Evaluate.evaluate(tree)} \n\n')
                 BinaryTree.clearTemplist(templist)
                 
+=======
+                print (f'\nThe expression: {original} evaluates to: {Evaluate.evaluate(tree)} \n\n')
+>>>>>>> 15bcf6cb7b770a9dce90389410bff76e35dfe83f
 
             
             elif user_option == 2: # option 2

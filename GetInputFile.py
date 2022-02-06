@@ -29,16 +29,20 @@ class GetInputFile:
                                 expression_n = expression.replace(' ', '') # remove all whitespaces from expression
                                 
                                 expression_list = list(expression_n) # convert string to list
-                                print(f'expression_list {expression_list}')
+                                # print(f'expression_list {expression_list}')
                                 for i in range(len(expression_list)):
                                     if i == 0: # ensure first char in expression is a parenthesis
+                                        if len(expression_list) == 1:
+                                            print('Expressions in input file must contain more than 1 character.')
+                                            valid = False
+                                            break
                                         if expression_list[i] != '(':
-                                            print('Expressions in input file must start and end with parenthesis.')
+                                            print('Expressions in input file must start with parenthesis.')
                                             valid = False
                                             break
                                     elif i == len(expression_list) - 1: # ensure last char in expression is a parenthesis
                                         if expression_list[i] != ')':
-                                            print('Expressions in input file must start and end with parenthesis.')
+                                            print('Expressions in input file must end with parenthesis.')
                                             valid = False
                                             break
                                     else: # ensure that only valid characters are used
@@ -63,11 +67,11 @@ class GetInputFile:
                         expression_n = expression.replace(' ', '') # remove all whitespaces from expression
     
                         expression_list = list(expression_n) # convert string to list
-                        print(f'expression_list {expression_list}')
+                        # print(f'expression_list {expression_list}')
 
                         tokenizeClass = Tokenize(exList=expression_list)
                         l = tokenizeClass.tokenize()
-                        print(f'tokenized list {l}')
+                        # print(f'tokenized list {l}')
 
                         # Check if expressions are fully parenthesized
                         parenthesizedClass = Parenthesized(exList=l)
@@ -85,7 +89,4 @@ class GetInputFile:
                 print(self.__errorMsg)
                 continue
 
-            else:
-                # we got a valid value, exit the loop
-                break
         return value

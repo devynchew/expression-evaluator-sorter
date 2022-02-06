@@ -1,8 +1,9 @@
 from Tokenize import Tokenize
-from Operator1 import operator1
-from Operator2 import operator2
+from Operator1 import Operator1
+from Operator2 import Operator2
 from Stack import Stack
 
+templist = []
 
 class BinaryTree:
     def __init__(self, key, leftTree = None, rightTree = None):
@@ -240,12 +241,15 @@ with open('config.txt', 'r') as configfile:
     operatorclass = configfile.readline()
     operatorclass = operatorclass.rstrip()
     if operatorclass == '2':
-        operatorclass = operator2
+        operatorclass = Operator2
     else:
-        operatorclass = operator1
+        operatorclass = Operator1
     
+<<<<<<< HEAD
 templist = []
 
+=======
+>>>>>>> 15bcf6cb7b770a9dce90389410bff76e35dfe83f
 # exp = '( 2 + ( 4 * 5 ) )'
 # exp2 = '((-500+(4*3.14))/(2**3))'
 # # exp3 =  '((11.07+25.5)-10)'
