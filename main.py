@@ -54,7 +54,7 @@ class main_program:
                 exp, original = getExpressionClass.get_expression()
                 print('\n')
                 tree = BuildParseTree.buildParseTree(exp)
-                tree.printInorder(0) #needs to print 90 degrees
+                tree.printInorder(0) 
                 print(templist)
                 print('')
                 for i in reversed(templist):
