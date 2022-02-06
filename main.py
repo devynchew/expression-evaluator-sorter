@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 from msilib.schema import Binary
-=======
-from sympy import Ge
->>>>>>> 15bcf6cb7b770a9dce90389410bff76e35dfe83f
 from GetUserOption import GetUserOption
 from GetInputFile import GetInputFile
 from GetOutputFile import GetOutputFile
@@ -61,13 +57,9 @@ class main_program:
                 print('')
                 for i in reversed(templist):
                     print(i)
-<<<<<<< HEAD
-                print (f'\nThe expression: {exp} evaluates to: {Evaluate.evaluate(tree)} \n\n')
+                print (f'\nThe expression: {original} evaluates to: {Evaluate.evaluate(tree)} \n\n')
                 BinaryTree.clearTemplist(templist)
                 
-=======
-                print (f'\nThe expression: {original} evaluates to: {Evaluate.evaluate(tree)} \n\n')
->>>>>>> 15bcf6cb7b770a9dce90389410bff76e35dfe83f
 
             
             elif user_option == 2: # option 2

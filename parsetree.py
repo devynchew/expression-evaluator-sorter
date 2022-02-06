@@ -245,11 +245,8 @@ with open('config.txt', 'r') as configfile:
     else:
         operatorclass = Operator1
     
-<<<<<<< HEAD
 templist = []
 
-=======
->>>>>>> 15bcf6cb7b770a9dce90389410bff76e35dfe83f
 # exp = '( 2 + ( 4 * 5 ) )'
 # exp2 = '((-500+(4*3.14))/(2**3))'
 # # exp3 =  '((11.07+25.5)-10)'
