@@ -1,6 +1,5 @@
 from Parsetree import *
 
-
 class Evaluate:
     def evaluate(tree):
         leftTree = tree.getLeftTree()

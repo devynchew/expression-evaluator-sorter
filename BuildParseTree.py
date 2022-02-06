@@ -6,21 +6,21 @@ from Tokenize import Tokenize
 class BuildParseTree:
         
     def buildParseTree(exp):
-        exp = " ".join(exp)
-        string = exp.split(' ')
-        while '' in string:
-            string.remove('')
-        string = ' '.join(string)
-        splitexp = string.split() 
-        tokenizeClass = Tokenize(exList = splitexp)
-        tokens = tokenizeClass.tokenize()
+        # exp = " ".join(exp)
+        # string = exp.split(' ')
+        # while '' in string:
+        #     string.remove('')
+        # string = ' '.join(string)
+        # splitexp = string.split() 
+        # tokenizeClass = Tokenize(exList = splitexp)
+        # tokens = tokenizeClass.tokenize()
         stack = Stack()
         tree = BinaryTree('?')
         stack.push(tree) # reference to tree is pushed in
 
         currentTree = tree # reference to root node of tree
 
-        for t in tokens:
+        for t in exp:
             # print(t)
             # print(type(t))
             # RULE 1: If token is '(' add a new node as left child and descend into that node

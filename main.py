@@ -1,6 +1,8 @@
+from sympy import Ge
 from GetUserOption import GetUserOption
 from GetInputFile import GetInputFile
 from GetOutputFile import GetOutputFile
+from GetExpression import GetExpression
 from Parsetree import *
 from BuildParseTree import BuildParseTree
 from Evaluate import Evaluate
@@ -18,6 +20,10 @@ class main_program:
         str += '\n*' + ' '*68 + '*'
         str += '\n*' + '*'*69
         str += '\n\n\n\n'
+        return str
+
+    def options(self):
+        str = ''
         str += f'Please select your choice (\'1\',\'2\',\'3\'):'
         str += '\n1. Evaluate expression'
         str += '\n2. Sort expressions'
@@ -27,24 +33,26 @@ class main_program:
     def run(self):
 
         exit_program = False
+        print(self.interface())
 
         while not exit_program:
             # print the interface
-            print(self.interface())
+            print(self.options())
 
             # get user option
             get_user_option = GetUserOption('Enter choice: ', 'Please enter a number between 1 and 4.')
             user_option = get_user_option.get_option()
 
             if user_option == 1: # option 1
-                exp = input('\nPlease enter the expression you want to evaluate: ') #validation needed
+                getExpressionClass = GetExpression('Please enter the expression you want to evaluate: ', 'Please enter a fully parenthesized mathematical expression.')
+                exp, original = getExpressionClass.get_expression()
                 print('\n')
                 tree = BuildParseTree.buildParseTree(exp)
                 tree.printInorder(0) #needs to print 90 degrees
                 # print(templist)
                 for i in reversed(templist):
                     print(i)
-                print (f'\nThe expression: {exp} evaluates to: {Evaluate.evaluate(tree)} \n\n')
+                print (f'\nThe expression: {original} evaluates to: {Evaluate.evaluate(tree)} \n\n')
 
             elif user_option == 2: # option 2
                 inputFileClass = GetInputFile('Please enter input file: ', '\nPlease enter a valid text file with fully parenthesized mathematical expressions.') # get input file
