@@ -5,7 +5,7 @@ class Operator2:
     def __init__(self, a):
         self.a = a
 
-    def normal_round(n):
+    def normal_round(self,n):
         if n - math.floor(n) < 0.5:
             return math.floor(n)
         return math.ceil(n)
