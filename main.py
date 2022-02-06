@@ -1,3 +1,4 @@
+from msilib.schema import Binary
 from GetUserOption import GetUserOption
 from GetInputFile import GetInputFile
 from GetOutputFile import GetOutputFile
@@ -22,8 +23,11 @@ class main_program:
         str += '\n1. Evaluate expression'
         str += '\n2. Sort expressions'
         str += '\n3. Exit'
+        
         return str
     
+    # mode = 'Inorder Traversal'
+    # order = 'Reverse'
     def run(self):
 
         exit_program = False
@@ -36,16 +40,21 @@ class main_program:
             get_user_option = GetUserOption('Enter choice: ', 'Please enter a number between 1 and 4.')
             user_option = get_user_option.get_option()
 
+            
             if user_option == 1: # option 1
                 exp = input('\nPlease enter the expression you want to evaluate: ') #validation needed
                 print('\n')
                 tree = BuildParseTree.buildParseTree(exp)
                 tree.printInorder(0) #needs to print 90 degrees
-                # print(templist)
+                print(templist)
+                print('')
                 for i in reversed(templist):
                     print(i)
                 print (f'\nThe expression: {exp} evaluates to: {Evaluate.evaluate(tree)} \n\n')
+                BinaryTree.clearTemplist(templist)
+                
 
+            
             elif user_option == 2: # option 2
                 inputFileClass = GetInputFile('Please enter input file: ', '\nPlease enter a valid text file with fully parenthesized mathematical expressions.') # get input file
                 inputFile = inputFileClass.getInput()
@@ -62,16 +71,19 @@ class main_program:
                 exit_program = True
                 
             elif user_option == 4: #option 4 ryan #change print traversal option
+                print(f'Current Tree Traversal is  {traversal}')
                 print('Change Tree Traversal:')
                 print('1. Inorder Traversal')
                 print('2. Preorder Traversal')
                 print('3. Postorder Traversal')
-                printOption = input('Enter choice here:')
+                traversal = input('Enter choice here:')
                 
             elif user_option == 5: #option 5 ryan reverse traversal or standard
+                print(f'Current Print Order is  {order}')
                 print('Change Print Order:')
                 print('1. Standard')
                 print('2. Reverse')
+                order = input('Enter choice here:')
             else:
                 continue
 main_program = main_program()

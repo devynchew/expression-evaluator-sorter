@@ -60,6 +60,10 @@ class BinaryTree:
         if self.rightTree != None:
             self.rightTree.printInorder(level+1)
         
+    def clearTemplist(list):
+        
+        return templist.clear()
+        
         
         
     # def printInorder(self, level):
@@ -241,6 +245,7 @@ with open('config.txt', 'r') as configfile:
         operatorclass = operator1
     
 templist = []
+
 # exp = '( 2 + ( 4 * 5 ) )'
 # exp2 = '((-500+(4*3.14))/(2**3))'
 # # exp3 =  '((11.07+25.5)-10)'
