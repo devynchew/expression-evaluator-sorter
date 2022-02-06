@@ -56,7 +56,7 @@ class main_program:
                 print('\n')
                 tree = BuildParseTree.buildParseTree(exp)
                 tree.printInorder(0) #needs to print 90 degrees
-                # print(f'templist: {templist}')
+                print(templist)
                 print('')
                 for i in reversed(templist):
                     print(i)
