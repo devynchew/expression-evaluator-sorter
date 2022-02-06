@@ -28,6 +28,8 @@ class main_program:
         str += '\n1. Evaluate expression'
         str += '\n2. Sort expressions'
         str += '\n3. Exit'
+        str += '\n4. Option 4'
+        str += '\n5. Option 5'
         
         return str
     
