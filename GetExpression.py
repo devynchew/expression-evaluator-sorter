@@ -55,6 +55,6 @@ class GetExpression:
                 continue
         return l, expression
 
-getExpressionClass = GetExpression('Please enter the expression you want to evaluate: ', 'Please enter a fully parenthesized mathematical expression.')
-exp = getExpressionClass.get_expression()
-print(exp)
+# getExpressionClass = GetExpression('Please enter the expression you want to evaluate: ', 'Please enter a fully parenthesized mathematical expression.')
+# exp = getExpressionClass.get_expression()
+# print(exp)
