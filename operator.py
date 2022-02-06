@@ -19,11 +19,11 @@ class A:
     
     # multiply two objects
     def __mul__(self,o):
-        return A.normal_round(self.a * o.a)
+        return self.normal_round(self.a * o.a)
     
     # division between 2 objects
     def __truediv__(self,o):
-        return A.normal_round(self.a / o.a)
+        return self.normal_round(self.a / o.a)
     
     # power of object
     def __pow__(self,o):

@@ -1,5 +1,5 @@
 
-class operator1:
+class Operator1:
     def __init__(self, a):
         self.a = a
 

@@ -8,10 +8,6 @@ class Tokenize:
         tempList = []
 
         for i in range(len(self.exList)):
-            # print(f'char {self.exList[i]}')
-            # print(f'tempList {tempList}')
-            # print(f'finalList {tokenizedList}')
-            # print()
             if self.exList[i].isdigit() and tempList and (tempList[-1].isdigit() or tempList[-1] == '-' or tempList[-1] == '.'):
                 tempList.append(self.exList[i])
             elif self.exList[i] == '-' and self.exList[i-1] == '(':
