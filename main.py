@@ -3,11 +3,14 @@ from GetUserOption import GetUserOption
 from GetInputFile import GetInputFile
 from GetOutputFile import GetOutputFile
 from GetExpression import GetExpression
+from GetTraversalOption import GetTraversalOption
+from GetPrintOption import GetPrintOption
 from Parsetree import *
 from BuildParseTree import BuildParseTree
 from Evaluate import Evaluate
 from Sort import Sort
 from Calculator import Calculator
+
 
 class main_program:
 
@@ -53,6 +56,7 @@ class main_program:
             # get user option
             get_user_option = GetUserOption('Enter choice: ', 'Please enter a number between 1 and 4.')
             user_option = get_user_option.get_option()
+            
 
             
             if user_option == 1: # option 1
@@ -68,7 +72,6 @@ class main_program:
                 elif traversal == 'Postorder Traversal':
                     tree.printPostorder(0)
                     
-                # print(templist)
                 print('')
                 if order == 'Reverse':
                     for i in reversed(templist):
@@ -95,31 +98,33 @@ class main_program:
                 exit_program = True
                 
             elif user_option == 4: #option 4 ryan #change print traversal option
-                print(f'Current Tree Traversal is  {traversal}')
+                print(f'\n\nCurrent Tree Traversal is  {traversal}')
                 print('Change Tree Traversal:')
                 print('1. Inorder Traversal')
                 print('2. Preorder Traversal')
                 print('3. Postorder Traversal')
-                traversalInput = input('Enter choice here (\'1\',\'2\',\'3\'): ')
+                traversalInputClass = GetTraversalOption('Enter choice here (\'1\',\'2\',\'3\'): ', '\nPlease enter a number between 1 and 3') # get traversal order
+                traversalInput = traversalInputClass.get_TraversalOption()
                 print('\n\n')
-                if traversalInput == '1':
+                if traversalInput == 1:
                     traversal = 'Inorder Traversal'
-                elif traversalInput == '2':
+                elif traversalInput == 2:
                     traversal = 'Preorder Traversal'
-                elif traversalInput == '3':
+                elif traversalInput == 3:
                     traversal = 'Postorder Traversal'
                 
                 
             elif user_option == 5: #option 5 ryan reverse traversal or standard
-                print(f'Current Print Order is  {order}')
+                print(f'\n\nCurrent Print Order is  {order}')
                 print('Change Print Order:')
                 print('1. Standard')
                 print('2. Reverse')
-                orderInput = input('Enter choice here (\'1\',\'2\'): ')
+                orderInputClass = GetPrintOption('Enter choice here (\'1\',\'2\'): ', '\nPlease enter a number between 1 and 2') # get printing order
+                orderInput = orderInputClass.get_PrintOption()
                 print('\n\n')
-                if orderInput == '1':
+                if orderInput == 1:
                     order = 'Standard'
-                elif orderInput == '2':
+                elif orderInput == 2:
                     order = 'Reverse'
                 
                 

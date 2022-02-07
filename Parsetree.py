@@ -97,6 +97,8 @@ with open('config.txt', 'r') as configfile:
         symbol = ' '
     else:
         symbol = symbol.rstrip()
+        if len(symbol) >1:
+            symbol = symbol[0]
     operatorclass = configfile.readline()
     operatorclass = operatorclass.rstrip()
     if operatorclass == '2':
