@@ -21,7 +21,6 @@ class BinaryTree:
     def getRightTree(self):
         return self.rightTree
 
-    # for CA2, you will likely store a string in 'key', like +, - sign
     def insertLeft(self, key):
         if self.leftTree == None:
             # insert as left subtree of current tree
@@ -40,7 +39,7 @@ class BinaryTree:
             self.rightTree , t.rightTree = t, self.rightTree
     
     
-    def printInorder(self, level):
+    def printInorder(self, level): #Inorder traversal
         
         #L
         if self.leftTree != None:
@@ -53,12 +52,7 @@ class BinaryTree:
         if self.rightTree != None:
             self.rightTree.printInorder(level+1)
         
-    def clearTemplist(list):
-        
-        return templist.clear()
-        
-        
-    def printPreorder(self, level):
+    def printPreorder(self, level): #Preorder traversal
         
         #N
         templist.append(str(level*symbol) + str(self.key))
@@ -71,7 +65,7 @@ class BinaryTree:
         if self.rightTree != None:
             self.rightTree.printPreorder(level+1)
             
-    def printPostorder(self, level):
+    def printPostorder(self, level): #Postorder traversal
         
         #L
         if self.leftTree != None:
@@ -84,22 +78,24 @@ class BinaryTree:
         #N
         templist.append(str(level*symbol) + str(self.key)) 
         
+    def clearTemplist(list): #clear list after printing tree traversal
+        
+        return templist.clear()
         
 
     
 #main
 with open('config.txt', 'r') as configfile:
-    symbol = configfile.readline()
-    # print(symbol)
-    if symbol == ' \n':
+    symbol = configfile.readline() #read first line(symbol)
+    if symbol == ' \n': #set symbol to space if symbol is space followed by newline
         symbol = ' '
     else:
-        symbol = symbol.rstrip()
+        symbol = symbol.rstrip() #remove newline
         if len(symbol) >1:
-            symbol = symbol[0]
+            symbol = symbol[0] #take first character of symbol if symbol is longer than 1 character
             print('\n\n\nYour separator contains more than 1 character, we will take the first character by default and continue the program.')
             print('\nPlease exit the program and edit the config.txt file if you wish to change your separator.\n\n')
-    operatorclass = configfile.readline()
+    operatorclass = configfile.readline() #read second line(operator class)
     operatorclass = operatorclass.rstrip()
     if operatorclass == '2':
         operatorclass = Operator2
