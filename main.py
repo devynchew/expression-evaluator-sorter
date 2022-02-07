@@ -31,8 +31,6 @@ class main_program:
         str += '\n3. Exit'
         str += '\n4. Change Tree Traversals'
         str += '\n5. Change Printing Order'
-        str += '\n4. Option 4'
-        str += '\n5. Option 5'
         str += '\n6. Open up a calculator interface'
         str += '\n7. Option 7'
         
