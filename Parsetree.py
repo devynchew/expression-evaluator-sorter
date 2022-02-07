@@ -99,8 +99,8 @@ with open('config.txt', 'r') as configfile:
         symbol = symbol.rstrip()
         if len(symbol) >1:
             symbol = symbol[0]
-            print('Your separator contains more than 1 character, we will take the first character by default and continue the program.')
-            print(' Please exit the program and edit the config.txt file if you wish to change your separator.')
+            print('\n\n\nYour separator contains more than 1 character, we will take the first character by default and continue the program.')
+            print('\nPlease exit the program and edit the config.txt file if you wish to change your separator.\n\n')
     operatorclass = configfile.readline()
     operatorclass = operatorclass.rstrip()
     if operatorclass == '2':
