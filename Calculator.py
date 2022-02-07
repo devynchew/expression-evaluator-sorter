@@ -22,7 +22,7 @@ class Calculator:
     def __init__(self):
         self.window = tk.Tk()
         # sets the width and height of window
-        self.window.geometry("475x667")
+        self.window.geometry("475x675")
         self.window.resizable(0, 0)
         self.window.title("Calculator")
 
@@ -179,8 +179,3 @@ class Calculator:
 
     def run(self):
         self.window.mainloop()
-
-
-# if __name__ == "__main__":
-#     calc = Calculator()
-#     calc.run()

@@ -10,6 +10,7 @@ from BuildParseTree import BuildParseTree
 from Evaluate import Evaluate
 from Sort import Sort
 from Calculator import Calculator
+from ChangeConfig import ChangeConfig
 
 
 class main_program:
@@ -27,8 +28,8 @@ class main_program:
         return str
 
     def options(self):
-        str = ''
-        str += f'Please select your choice (\'1\',\'2\',\'3\'):'
+        str = '\n'
+        str += f'Please select your choice (\'1\',\'2\',\'3\',\'4\',\'5\',\'6\',\'7\'):'
         str += '\n1. Evaluate expression'
         str += '\n2. Sort expressions'
         str += '\n3. Change Tree Traversals'
@@ -56,7 +57,6 @@ class main_program:
             # get user option
             get_user_option = GetUserOption('Enter choice: ', 'Please enter a number between 1 and 4.')
             user_option = get_user_option.get_option()
-            
 
             
             if user_option == 1: # option 1
@@ -127,9 +127,10 @@ class main_program:
                 calculatorClass = Calculator()
                 calculatorClass.run()
                 
-            elif user_option == 6:
-                exit_program = True
-                
+            elif user_option == 6: # option 6 Devyn change config file
+                changeConfigClass = ChangeConfig('Please enter 1 for standard operator or 2 for special operator: ', 'Please enter either 1 or 2.')
+                changeConfigClass.change_operator()
+
             elif user_option == 7:
                 print('Bye, thanks for using ST1507 DSAA: Expression Evaluator & Sorter')
                 exit_program = True

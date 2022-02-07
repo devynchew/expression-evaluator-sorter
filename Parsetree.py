@@ -1,7 +1,5 @@
-from Tokenize import Tokenize
 from Operator1 import Operator1
 from Operator2 import Operator2
-from Stack import Stack
 
 templist = []
 
@@ -108,8 +106,3 @@ with open('config.txt', 'r') as configfile:
     else:
         operatorclass = Operator1
     
-
-# templist = []
-# exp = '( 2 + ( 4 * 5 ) )'
-# exp2 = '((-500+(4*3.14))/(2**3))'
-# # exp3 =  '((11.07+25.5)-10)'
