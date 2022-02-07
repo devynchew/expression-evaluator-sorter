@@ -54,7 +54,3 @@ class GetExpression:
                 print(self.__errorMsg)
                 continue
         return l, expression
-
-# getExpressionClass = GetExpression('Please enter the expression you want to evaluate: ', 'Please enter a fully parenthesized mathematical expression.')
-# exp = getExpressionClass.get_expression()
-# print(exp)

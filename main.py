@@ -31,7 +31,7 @@ class main_program:
         str += '\n3. Exit'
         str += '\n4. Option 4'
         str += '\n5. Option 5'
-        str += '\n6. Option 6'
+        str += '\n6. Open up a calculator interface'
         str += '\n7. Option 7'
         
         return str
