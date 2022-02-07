@@ -7,6 +7,7 @@ from Parsetree import *
 from BuildParseTree import BuildParseTree
 from Evaluate import Evaluate
 from Sort import Sort
+from Calculator import Calculator
 
 class main_program:
 
@@ -30,6 +31,8 @@ class main_program:
         str += '\n3. Exit'
         str += '\n4. Option 4'
         str += '\n5. Option 5'
+        str += '\n6. Option 6'
+        str += '\n7. Option 7'
         
         return str
     
@@ -52,17 +55,16 @@ class main_program:
             if user_option == 1: # option 1
                 getExpressionClass = GetExpression('Please enter the expression you want to evaluate: ', 'Please enter a fully parenthesized mathematical expression.')
                 exp, original = getExpressionClass.get_expression()
-                print(f'exp: {exp}')
+                # print(f'exp: {exp}')
                 print('\n')
                 tree = BuildParseTree.buildParseTree(exp)
                 tree.printInorder(0) #needs to print 90 degrees
-                print(templist)
+                # print(templist)
                 print('')
                 for i in reversed(templist):
                     print(i)
                 print (f'\nThe expression: {original} evaluates to: {Evaluate.evaluate(tree)} \n\n')
                 BinaryTree.clearTemplist(templist)
-                
 
             
             elif user_option == 2: # option 2
@@ -74,7 +76,6 @@ class main_program:
                 
                 sortClass = Sort(inputFile, outputFile)
                 sortClass.sort()
-                exit_program = True
 
             elif user_option == 3: # option 3
                 print('Bye, thanks for using ST1507 DSAA: Expression Evaluator & Sorter')
@@ -94,6 +95,11 @@ class main_program:
                 print('1. Standard')
                 print('2. Reverse')
                 order = input('Enter choice here:')
+            elif user_option == 6:
+                calculatorClass = Calculator()
+                calculatorClass.run()
+            elif user_option == 7:
+                exit_program = True
             else:
                 continue
 main_program = main_program()
