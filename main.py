@@ -61,7 +61,8 @@ class main_program:
             if user_option == 1: # option 1
                 getExpressionClass = GetExpression('Please enter the expression you want to evaluate: ', 'Please enter a fully parenthesized mathematical expression.')
                 exp, original = getExpressionClass.get_expression()
-
+                # print(f'exp: {exp}')
+                print(f'\nCurrent Print is set to {traversal} in {order} mode.')
                 print('\n')
                 tree = BuildParseTree.buildParseTree(exp)
                 if traversal == 'Inorder Traversal':
