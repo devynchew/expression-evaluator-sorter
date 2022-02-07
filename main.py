@@ -7,6 +7,7 @@ from Parsetree import *
 from BuildParseTree import BuildParseTree
 from Evaluate import Evaluate
 from Sort import Sort
+from Calculator import Calculator
 
 class main_program:
 
@@ -30,6 +31,10 @@ class main_program:
         str += '\n3. Exit'
         str += '\n4. Change Tree Traversals'
         str += '\n5. Change Printing Order'
+        str += '\n4. Option 4'
+        str += '\n5. Option 5'
+        str += '\n6. Open up a calculator interface'
+        str += '\n7. Option 7'
         
         return str
     
@@ -55,6 +60,7 @@ class main_program:
             if user_option == 1: # option 1
                 getExpressionClass = GetExpression('Please enter the expression you want to evaluate: ', 'Please enter a fully parenthesized mathematical expression.')
                 exp, original = getExpressionClass.get_expression()
+                # print(f'exp: {exp}')
                 print('\n')
                 tree = BuildParseTree.buildParseTree(exp)
                 if traversal == 'Inorder Traversal':
@@ -74,7 +80,6 @@ class main_program:
                         print(i)
                 print (f'\nThe expression: {original} evaluates to: {Evaluate.evaluate(tree)} \n\n')
                 BinaryTree.clearTemplist(templist)
-                
 
             
             elif user_option == 2: # option 2
@@ -86,7 +91,6 @@ class main_program:
                 
                 sortClass = Sort(inputFile, outputFile)
                 sortClass.sort()
-                exit_program = True
 
             elif user_option == 3: # option 3
                 print('Bye, thanks for using ST1507 DSAA: Expression Evaluator & Sorter')
@@ -114,10 +118,18 @@ class main_program:
                 print('1. Standard')
                 print('2. Reverse')
                 orderInput = input('Enter choice here (\'1\',\'2\'): ')
+                print('\n\n')
                 if orderInput == '1':
                     order = 'Standard'
                 elif orderInput == '2':
                     order = 'Reverse'
+                
+                
+            elif user_option == 6:
+                calculatorClass = Calculator()
+                calculatorClass.run()
+            elif user_option == 7:
+                exit_program = True
             else:
                 continue
 main_program = main_program()

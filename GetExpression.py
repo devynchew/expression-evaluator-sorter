@@ -31,7 +31,7 @@ class GetExpression:
                             break
                     else: # ensure that only valid characters are used
                         if expression_list[i] not in ['+', '-', '*', '/', '(', ')', '.'] and not expression_list[i].isdigit():
-                            print('Input file contains invalid characters. Only numbers, +, -, *, **, /, (, ) are allowed.')
+                            print('Expression contains invalid characters. Only numbers, +, -, *, **, /, (, ) are allowed.')
                             valid = False
                             break
                 if not valid: # input expression contains invalid characters, continue to prompt user for input expression
@@ -54,7 +54,3 @@ class GetExpression:
                 print(self.__errorMsg)
                 continue
         return l, expression
-
-# getExpressionClass = GetExpression('Please enter the expression you want to evaluate: ', 'Please enter a fully parenthesized mathematical expression.')
-# exp = getExpressionClass.get_expression()
-# print(exp)

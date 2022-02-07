@@ -67,11 +67,9 @@ class GetInputFile:
                         expression_n = expression.replace(' ', '') # remove all whitespaces from expression
     
                         expression_list = list(expression_n) # convert string to list
-                        # print(f'expression_list {expression_list}')
 
                         tokenizeClass = Tokenize(exList=expression_list)
                         l = tokenizeClass.tokenize()
-                        # print(f'tokenized list {l}')
 
                         # Check if expressions are fully parenthesized
                         parenthesizedClass = Parenthesized(exList=l)

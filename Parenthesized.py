@@ -15,6 +15,8 @@ class Parenthesized:
                 elif self.exList[i-1] == '(' and self.exList[i+1] == ')':
                     pass
                 else:
-                    print(f'current char: {self.exList[i]}')
                     return False
+        if self.exList.count('(') != self.exList.count(')'):
+            print('The number of left and right parenthesis must be equal.')
+            return False
         return True

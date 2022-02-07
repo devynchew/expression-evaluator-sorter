@@ -16,7 +16,7 @@ class GetUserOption:
             if value < 1:
                 print(self.__errorMsg)
                 continue
-            if value > 5:
+            if value > 7:
                 print(self.__errorMsg)
                 continue
             else:
