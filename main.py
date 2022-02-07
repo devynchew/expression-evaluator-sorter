@@ -31,11 +31,11 @@ class main_program:
         str += f'Please select your choice (\'1\',\'2\',\'3\'):'
         str += '\n1. Evaluate expression'
         str += '\n2. Sort expressions'
-        str += '\n3. Exit'
-        str += '\n4. Change Tree Traversals'
-        str += '\n5. Change Printing Order'
-        str += '\n6. Open up a calculator interface'
-        str += '\n7. Option 7'
+        str += '\n3. Change Tree Traversals'
+        str += '\n4. Change Printing Order'
+        str += '\n5. Open up a calculator interface'
+        str += '\n6. Change operator'
+        str += '\n7. Exit'
         
         return str
     
@@ -93,11 +93,7 @@ class main_program:
                 sortClass = Sort(inputFile, outputFile)
                 sortClass.sort()
 
-            elif user_option == 3: # option 3
-                print('Bye, thanks for using ST1507 DSAA: Expression Evaluator & Sorter')
-                exit_program = True
-                
-            elif user_option == 4: #option 4 ryan #change print traversal option
+            elif user_option == 3: # option 3 ryan #change print traversal option
                 print(f'\n\nCurrent Tree Traversal is  {traversal}')
                 print('Change Tree Traversal:')
                 print('1. Inorder Traversal')
@@ -113,8 +109,7 @@ class main_program:
                 elif traversalInput == 3:
                     traversal = 'Postorder Traversal'
                 
-                
-            elif user_option == 5: #option 5 ryan reverse traversal or standard
+            elif user_option == 4: #option 4 ryan reverse traversal or standard
                 print(f'\n\nCurrent Print Order is  {order}')
                 print('Change Print Order:')
                 print('1. Standard')
@@ -128,13 +123,19 @@ class main_program:
                     order = 'Reverse'
                 
                 
-            elif user_option == 6:
+            elif user_option == 5: # option 5 Devyn calculator interface
                 calculatorClass = Calculator()
                 calculatorClass.run()
+                
+            elif user_option == 6:
+                exit_program = True
+                
             elif user_option == 7:
+                print('Bye, thanks for using ST1507 DSAA: Expression Evaluator & Sorter')
                 exit_program = True
             else:
                 continue
+
 main_program = main_program()
 main_program.run()
 
