@@ -26,18 +26,19 @@ class GetInputFile:
                             for line in f:
                                 if not valid: # don't bother checking other lines if one of the lines is invalid
                                     break
-                                expression = line.strip() # get rid of \n
+                                expression = line.strip() # get rid of leading and trailing spaces and \n
 
                                 expression_n = expression.replace(' ', '') # remove all whitespaces from expression
                                 
                                 expression_list = list(expression_n) # convert string to list
-
+                                
+                                # Ensure that expression is not an empty line
+                                if len(expression_list) == 0:
+                                    print('Expressions in input file must not be empty.')
+                                    valid = False
+                                    break
                                 for i in range(len(expression_list)):
                                     if i == 0: # ensure first char in expression is a parenthesis
-                                        if len(expression_list) == 1:
-                                            print('Expressions in input file must contain more than 1 character.')
-                                            valid = False
-                                            break
                                         if expression_list[i] != '(':
                                             print('Expressions in input file must start with parenthesis.')
                                             valid = False
@@ -65,9 +66,10 @@ class GetInputFile:
                 with open(value) as file:
                     for line in file:
                         
-                        expression = line.strip() # remove \n
+                        expression = line.strip() # get rid of leading and trailing spaces and \n
+
                         expression_n = expression.replace(' ', '') # remove all whitespaces from expression
-    
+
                         expression_list = list(expression_n) # convert string to list
 
                         tokenizeClass = Tokenize(exList=expression_list)
