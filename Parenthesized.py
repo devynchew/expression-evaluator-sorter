@@ -4,6 +4,7 @@ class Parenthesized:
 
     # Conditions for fully parenthesized expressions:
     # All operands are surrounded by either one parenthesis and one operator, or two parentheses
+    # The number of left brackets must be equal to the number of right brackets
     def checkParenthesis(self):
         operators = ['+', '-', '*', '/', '**']
         for i in range(len(self.exList)):

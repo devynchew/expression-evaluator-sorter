@@ -49,7 +49,3 @@ class Tokenize:
                 
         return tokenizedList
 
-
-# tokenizeClass = Tokenize(exList=['(', '(', '-', '5', '0', '0', '+', '(', '4', '*', '3', '.', '1', '4', ')', ')', '/', '(', '2', '*', '*', '3', ')', ')'])
-# list, valid = tokenizeClass.tokenize()
-# print(list)
