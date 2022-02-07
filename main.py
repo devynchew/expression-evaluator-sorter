@@ -1,4 +1,3 @@
-from msilib.schema import Binary
 from GetUserOption import GetUserOption
 from GetInputFile import GetInputFile
 from GetOutputFile import GetOutputFile
@@ -62,7 +61,7 @@ class main_program:
             if user_option == 1: # option 1
                 getExpressionClass = GetExpression('Please enter the expression you want to evaluate: ', 'Please enter a fully parenthesized mathematical expression.')
                 exp, original = getExpressionClass.get_expression()
-                # print(f'exp: {exp}')
+
                 print('\n')
                 tree = BuildParseTree.buildParseTree(exp)
                 if traversal == 'Inorder Traversal':
@@ -79,7 +78,7 @@ class main_program:
                 elif order == 'Standard':
                     for i in templist:
                         print(i)
-                print (f'\nThe expression: {original} evaluates to: {Evaluate.evaluate(tree)} \n\n')
+                print(f'\nThe expression: {original} evaluates to: {Evaluate.evaluate(tree)} \n\n')
                 BinaryTree.clearTemplist(templist)
 
             
