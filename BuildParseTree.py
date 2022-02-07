@@ -21,7 +21,7 @@ class BuildParseTree:
         currentTree = tree # reference to root node of tree
 
         for t in exp:
-            # print(t)
+            print(t)
             # print(type(t))
             # RULE 1: If token is '(' add a new node as left child and descend into that node
             if t == '(':
@@ -38,7 +38,10 @@ class BuildParseTree:
             # RULE 3: If token is number, set key of the current node to that number and return to parent
             elif t not in ['+', '-', '*', '/', '**', ')'] :
                 # t = float(t)
-                currentTree.setKey(float(t))  
+                if '.' not in t:
+                    currentTree.setKey(int(t))  
+                else:
+                    currentTree.setKey(float(t))
                 parent = stack.pop()
                 currentTree = parent
 
