@@ -60,35 +60,32 @@ class BinaryTree:
         return templist.clear()
         
         
-    # def printPreorder(self, level, templist = []):
+    def printPreorder(self, level):
         
-    #     #N
-    #     print( str(level*symbol) + str(self.key)) 
-    #     #store node in list
-    #     # templist += [str(level*symbol) + str(self.key)]
+        #N
+        templist.append(str(level*symbol) + str(self.key))
+
+        #L
+        if self.leftTree != None:
+            self.leftTree.printPreorder(level+1)
         
-    #     #L
-    #     if self.leftTree != None:
-    #         self.leftTree.printPreorder(level+1)
-        
-    #     #R
-    #     if self.rightTree != None:
-    #         self.rightTree.printPreorder(level+1)
+        #R
+        if self.rightTree != None:
+            self.rightTree.printPreorder(level+1)
             
-    # def printPostorder(self, level, templist = []):
+    def printPostorder(self, level):
         
-    #     #L
-    #     if self.leftTree != None:
-    #         self.leftTree.printPostorder(level+1)
+        #L
+        if self.leftTree != None:
+            self.leftTree.printPostorder(level+1)
         
-    #     #R
-    #     if self.rightTree != None:
-    #         self.rightTree.printPostorder(level+1)
+        #R
+        if self.rightTree != None:
+            self.rightTree.printPostorder(level+1)
             
-    #     #N
-    #     print( str(level*symbol) + str(self.key)) 
-        #store node in list
-        # templist += [str(level*symbol) + str(self.key)]
+        #N
+        templist.append(str(level*symbol) + str(self.key)) 
+        
         
 
     

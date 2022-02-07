@@ -28,15 +28,18 @@ class main_program:
         str += '\n1. Evaluate expression'
         str += '\n2. Sort expressions'
         str += '\n3. Exit'
-        str += '\n4. Option 4'
-        str += '\n5. Option 5'
+        str += '\n4. Change Tree Traversals'
+        str += '\n5. Change Printing Order'
         
         return str
     
     # mode = 'Inorder Traversal'
     # order = 'Reverse'
+    
     def run(self):
 
+        traversal = 'Inorder Traversal'
+        order = 'Reverse'
         exit_program = False
         print(self.interface())
 
@@ -54,11 +57,21 @@ class main_program:
                 exp, original = getExpressionClass.get_expression()
                 print('\n')
                 tree = BuildParseTree.buildParseTree(exp)
-                tree.printInorder(0) 
-                print(templist)
+                if traversal == 'Inorder Traversal':
+                    tree.printInorder(0) 
+                elif traversal == 'Preorder Traversal':
+                    tree.printPreorder(0)
+                elif traversal == 'Postorder Traversal':
+                    tree.printPostorder(0)
+                    
+                # print(templist)
                 print('')
-                for i in reversed(templist):
-                    print(i)
+                if order == 'Reverse':
+                    for i in reversed(templist):
+                        print(i)
+                elif order == 'Standard':
+                    for i in templist:
+                        print(i)
                 print (f'\nThe expression: {original} evaluates to: {Evaluate.evaluate(tree)} \n\n')
                 BinaryTree.clearTemplist(templist)
                 
@@ -85,14 +98,26 @@ class main_program:
                 print('1. Inorder Traversal')
                 print('2. Preorder Traversal')
                 print('3. Postorder Traversal')
-                traversal = input('Enter choice here:')
+                traversalInput = input('Enter choice here (\'1\',\'2\',\'3\'): ')
+                print('\n\n')
+                if traversalInput == '1':
+                    traversal = 'Inorder Traversal'
+                elif traversalInput == '2':
+                    traversal = 'Preorder Traversal'
+                elif traversalInput == '3':
+                    traversal = 'Postorder Traversal'
+                
                 
             elif user_option == 5: #option 5 ryan reverse traversal or standard
                 print(f'Current Print Order is  {order}')
                 print('Change Print Order:')
                 print('1. Standard')
                 print('2. Reverse')
-                order = input('Enter choice here:')
+                orderInput = input('Enter choice here (\'1\',\'2\'): ')
+                if orderInput == '1':
+                    order = 'Standard'
+                elif orderInput == '2':
+                    order = 'Reverse'
             else:
                 continue
 main_program = main_program()
