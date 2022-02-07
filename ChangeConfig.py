@@ -1,4 +1,4 @@
-from Parsetree import *
+
 
 class ChangeConfig:
     def __init__(self, prompt, errorMsg): 

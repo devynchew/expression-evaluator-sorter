@@ -1,5 +1,6 @@
-from Parsetree import BinaryTree
+from Parsetree import ParseTree
 from Stack import Stack
+
 
 
 class BuildParseTree:
@@ -7,7 +8,7 @@ class BuildParseTree:
     def buildParseTree(exp):
 
         stack = Stack()
-        tree = BinaryTree('?')
+        tree = ParseTree('?')
         stack.push(tree) # reference to tree is pushed in
 
         currentTree = tree # reference to root node of tree
