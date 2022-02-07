@@ -6,6 +6,7 @@ from Stack import Stack
 class BuildParseTree:
         
     def buildParseTree(exp):
+
         stack = Stack()
         tree = ParseTree('?')
         stack.push(tree) # reference to tree is pushed in
@@ -13,7 +14,6 @@ class BuildParseTree:
         currentTree = tree # reference to root node of tree
 
         for t in exp:
-            print(t)
             # print(type(t))
             # RULE 1: If token is '(' add a new node as left child and descend into that node
             if t == '(':
