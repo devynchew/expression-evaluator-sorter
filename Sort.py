@@ -1,3 +1,7 @@
+from Tokenize import Tokenize
+from BuildParseTree import BuildParseTree
+from Evaluate import Evaluate
+
 class Sort:
     def __init__(self, inputfile, outputfile):
         self.__inputfile = inputfile
@@ -7,11 +11,16 @@ class Sort:
         with open(self.__inputfile) as file:
             expressions = []
             for line in file:
-                expression = line.split(',')[0] # store the expression
-               
-                value = float(line.split(',')[1][:-1]) # store the value
-                
+                expression = line.strip() # remove \n
                 expression_n = expression.replace(' ', '') # remove all whitespaces from expression
+                expression_list = list(expression_n) # convert string to list
+
+                tokenizeClass = Tokenize(exList=expression_list)
+                l = tokenizeClass.tokenize()
+
+                tree = BuildParseTree.buildParseTree(l)
+               
+                value = Evaluate.evaluate(tree) # store the value
 
                 expressions.append((expression_n, value)) # append a tuple
 
@@ -87,4 +96,3 @@ class Sort:
                 if expression[1] == value:
                     print(f'{expression[0]}==>{value}')
         print('>>>Evaluation and sorting completed!')
-

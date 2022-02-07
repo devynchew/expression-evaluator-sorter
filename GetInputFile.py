@@ -20,16 +20,18 @@ class GetInputFile:
                 valid = True # assume expressions in input file are valid
                 with open(value) as file:
                     content = file.read().strip() # get rid of leading or trailing whitespace (including newlines)
+
                     if content: # check if file is empty
                         with open(value) as f:
                             for line in f:
                                 if not valid: # don't bother checking other lines if one of the lines is invalid
                                     break
-                                expression = line.split(',')[0] # store the expression
+                                expression = line.strip() # get rid of \n
+
                                 expression_n = expression.replace(' ', '') # remove all whitespaces from expression
                                 
                                 expression_list = list(expression_n) # convert string to list
-                                # print(f'expression_list {expression_list}')
+
                                 for i in range(len(expression_list)):
                                     if i == 0: # ensure first char in expression is a parenthesis
                                         if len(expression_list) == 1:
@@ -62,8 +64,8 @@ class GetInputFile:
                 # if we reached here, start tokenising
                 with open(value) as file:
                     for line in file:
-
-                        expression = line.split(',')[0] # store the expression
+                        
+                        expression = line.strip() # remove \n
                         expression_n = expression.replace(' ', '') # remove all whitespaces from expression
     
                         expression_list = list(expression_n) # convert string to list
