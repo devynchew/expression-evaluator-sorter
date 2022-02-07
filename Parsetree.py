@@ -3,7 +3,7 @@ from Operator2 import Operator2
 
 templist = []
 
-class BinaryTree:
+class ParseTree:
     def __init__(self, key, leftTree = None, rightTree = None):
         self.key = key
         self.leftTree = leftTree
@@ -24,17 +24,17 @@ class BinaryTree:
     def insertLeft(self, key):
         if self.leftTree == None:
             # insert as left subtree of current tree
-            self.leftTree = BinaryTree(key)
+            self.leftTree = ParseTree(key)
         else:
-            t = BinaryTree(key)
+            t = ParseTree(key)
             # insert key into the middle of self and self's left tree
             self.leftTree , t.leftTree = t, self.leftTree
 
     def insertRight(self, key):
         if self.rightTree == None:
-            self.rightTree = BinaryTree(key)
+            self.rightTree = ParseTree(key)
         else:
-            t = BinaryTree(key)
+            t = ParseTree(key)
             # insert key into the middle of self and self's right tree
             self.rightTree , t.rightTree = t, self.rightTree
     

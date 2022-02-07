@@ -80,7 +80,7 @@ class main_program:
                     for i in templist:
                         print(i)
                 print(f'\nThe expression: {original} evaluates to: {Evaluate.evaluate(tree)} \n\n')
-                BinaryTree.clearTemplist(templist)
+                ParseTree.clearTemplist(templist)
 
             
             elif user_option == 2: # option 2

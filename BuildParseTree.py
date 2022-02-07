@@ -1,21 +1,13 @@
-from Parsetree import BinaryTree
+from Parsetree import ParseTree
 from Stack import Stack
-from Tokenize import Tokenize
+
 
 
 class BuildParseTree:
         
     def buildParseTree(exp):
-        # exp = " ".join(exp)
-        # string = exp.split(' ')
-        # while '' in string:
-        #     string.remove('')
-        # string = ' '.join(string)
-        # splitexp = string.split() 
-        # tokenizeClass = Tokenize(exList = splitexp)
-        # tokens = tokenizeClass.tokenize()
         stack = Stack()
-        tree = BinaryTree('?')
+        tree = ParseTree('?')
         stack.push(tree) # reference to tree is pushed in
 
         currentTree = tree # reference to root node of tree
