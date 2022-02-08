@@ -1,3 +1,7 @@
+# Name: Devyn Chew Kim Hong, Ryan Tan Kah Shing
+# Student ID: P2026578, P2026312
+# Class: DAAA/2B/04
+
 from GetUserOption import GetUserOption
 from GetInputFile import GetInputFile
 from GetOutputFile import GetOutputFile

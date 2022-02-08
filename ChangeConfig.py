@@ -1,4 +1,6 @@
-
+# Name: Devyn Chew Kim Hong
+# Student ID: P2026578
+# Class: DAAA/2B/04
 
 class ChangeConfig:
     def __init__(self, prompt, errorMsg): 
