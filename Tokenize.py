@@ -1,3 +1,7 @@
+# Name: Devyn Chew Kim Hong
+# Student ID: P2026578
+# Class: DAAA/2B/04
+
 class Tokenize:
     def __init__(self, exList):
         self.exList = exList
@@ -49,7 +53,3 @@ class Tokenize:
                 
         return tokenizedList
 
-
-# tokenizeClass = Tokenize(exList=['(', '(', '-', '5', '0', '0', '+', '(', '4', '*', '3', '.', '1', '4', ')', ')', '/', '(', '2', '*', '*', '3', ')', ')'])
-# list, valid = tokenizeClass.tokenize()
-# print(list)

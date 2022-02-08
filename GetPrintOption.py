@@ -1,3 +1,7 @@
+# Name: Ryan Tan Kah Shing
+# Student ID: P2026312
+# Class: DAAA/2B/04
+
 class GetPrintOption:
     def __init__(self, prompt, errorMsg): 
             self.__prompt = prompt

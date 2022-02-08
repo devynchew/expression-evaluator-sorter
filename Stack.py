@@ -1,3 +1,7 @@
+# Name: Ryan Tan Kah Shing
+# Student ID: P2026312
+# Class: DAAA/2B/04
+
 class Stack:
     def __init__(self):
         self.__list= []
