@@ -134,7 +134,6 @@ class main_program:
             elif user_option == 6: # option 6 Devyn change config file
                 changeConfigClass = ChangeConfig('Please enter 1 for standard operator or 2 for special operator: ', 'Please enter either 1 or 2.')
                 changeConfigClass.change_operator()
-                self.run()
 
             elif user_option == 7:
                 print('Bye, thanks for using ST1507 DSAA: Expression Evaluator & Sorter')
