@@ -94,11 +94,15 @@ with open('config.txt', 'r') as configfile:
         if len(symbol) >1:
             symbol = symbol[0] #take first character of symbol if symbol is longer than 1 character
             print('\n\n\nYour separator contains more than 1 character, we will take the first character by default and continue the program.')
-            print('\nPlease exit the program and edit the config.txt file if you wish to change your separator.\n\n')
+            print('\nPlease exit the program and edit the config.txt file if you wish to change your separator.')
     operatorclass = configfile.readline() #read second line(operator class)
-    operatorclass = operatorclass.rstrip()
-    if operatorclass == '2':
-        operatorclass = Operator2
+    operatorclass = int(operatorclass.rstrip()) #remove newline and change to number
+    if operatorclass != 2 or operatorclass != 1:
+        print('\nOperator class is not 1 or 2, we will take 1 by default and continue the program.\n')
+        operatorclass = Operator1 #set operator class to default if not 1 or 2
+    
+    elif operatorclass == 2:
+            operatorclass = Operator2
     else:
-        operatorclass = Operator1
+            operatorclass = Operator1
     
