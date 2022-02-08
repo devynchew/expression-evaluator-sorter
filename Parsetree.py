@@ -101,12 +101,11 @@ with open('config.txt', 'r') as configfile:
             print('\nPlease exit the program and edit the config.txt file if you wish to change your separator.')
     operatorclass = configfile.readline() #read second line(operator class)
     operatorclass = int(operatorclass.rstrip()) #remove newline and change to number
-    if operatorclass != 2 or operatorclass != 1:
+    
+    if operatorclass == 2:
+            operatorclass = Operator2
+    elif operatorclass == 1:
+            operatorclass = Operator1
+    else:
         print('\nOperator class is not 1 or 2, we will take 1 by default and continue the program.\n')
         operatorclass = Operator1 #set operator class to default if not 1 or 2
-    
-    elif operatorclass == 2:
-            operatorclass = Operator2
-    else:
-            operatorclass = Operator1
-    
